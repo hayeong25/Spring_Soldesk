@@ -1,0 +1,12 @@
+CREATE TABLE spring_board (
+	bno NUMBER(10, 0),
+	title VARCHAR2(200) NOT NULL,
+	content VARCHAR2(2000) NOT NULL,
+	writer VARCHAR2(50) NOT NULL,
+	regdate DATE DEFAULT SYSDATE,
+	updatedate DATE DEFAULT SYSDATE
+);
+
+ALTER TABLE spring_board ADD CONSTRAINT pk_spring_board PRIMARY KEY(bno);
+
+CREATE SEQUENCE seq_board;
