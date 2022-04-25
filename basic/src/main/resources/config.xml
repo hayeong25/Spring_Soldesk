@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<!-- Spring Bean : Spring에서 Singleton으로 생성한 후 관리하는 객체 (SingleTon으로 관리) -->
+	<bean id="en" class="com.study.myapp.di.MessageEn" />
+	<bean id="ko" class="com.study.myapp.di.MessageKo" />
+	
+	<!--  new SonySpeaker() 개념을 bean으로 만들기 -->
+	<bean id="Sony" class="com.study.myapp.di.SonySpeaker" />
+	<bean id="Apple" class="com.study.myapp.di.AppleSpeaker" />
+	
+	<!--  new SamsungTV() 개념을 bean으로 만들기 -->
+	<!-- <bean id="Samsung" class="com.study.myapp.di.SamsungTV">
+		<constructor-arg ref="Sony" /> >> 생성된 Sony 객체를 생성자에게 주입
+	</bean> -->
+	
+	<!--  <bean id="Samsung" class="com.study.myapp.di.SamsungTV">
+		<property name="speaker" ref="sony" /> >> 생성된 Sony 객체를 Setter에 주입
+	</bean> -->
+	
+	<bean id="Samsung" class="com.study.myapp.di.SamsungTV">
+		<property name="speaker" ref="Apple" /> <!-- 생성된 Apple 객체를 Setter에 주입 -->
+	</bean>
+	
+	<!-- 생성자가 없으면 생성 불가 -->
+	<bean id="Lg" class="com.study.myapp.di.LGTV">
+		<constructor-arg ref="Sony"></constructor-arg>
+	</bean>
+</beans>
