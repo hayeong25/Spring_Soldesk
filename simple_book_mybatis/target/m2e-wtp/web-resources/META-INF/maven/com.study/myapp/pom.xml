@@ -10,8 +10,8 @@
 	<properties>
 		<java-version>11</java-version>
 		<org.springframework-version>5.3.19</org.springframework-version>
-		<org.aspectj-version>1.6.10</org.aspectj-version>
-		<org.slf4j-version>1.6.6</org.slf4j-version>
+		<org.aspectj-version>1.9.9.1</org.aspectj-version>
+		<org.slf4j-version>1.7.36</org.slf4j-version>
 	</properties>
 	<dependencies>
 		<!-- https://mvnrepository.com/artifact/org.mybatis/mybatis -->
@@ -70,54 +70,40 @@
 			<version>${org.springframework-version}</version>
 		</dependency>
 				
-		<!-- AspectJ -->
+		<!-- AspectJ : AOP -->
 		<dependency>
 			<groupId>org.aspectj</groupId>
 			<artifactId>aspectjrt</artifactId>
 			<version>${org.aspectj-version}</version>
-		</dependency>	
+		</dependency>
+		<!-- https://mvnrepository.com/artifact/org.aspectj/aspectjweaver -->
+		<dependency>
+		    <groupId>org.aspectj</groupId>
+		    <artifactId>aspectjweaver</artifactId>
+		    <version>1.9.9.1</version>
+		    <scope>runtime</scope>
+		</dependency>
 		
 		<!-- Logging -->
+		<!-- Logging facade -->
 		<dependency>
 			<groupId>org.slf4j</groupId>
 			<artifactId>slf4j-api</artifactId>
 			<version>${org.slf4j-version}</version>
 		</dependency>
+		<!-- JCL로 되어 있는 것이 있다면 SLF4j로 변경 -->
 		<dependency>
 			<groupId>org.slf4j</groupId>
 			<artifactId>jcl-over-slf4j</artifactId>
 			<version>${org.slf4j-version}</version>
 			<scope>runtime</scope>
 		</dependency>
+		<!-- Logging 구현체 -->
+		<!-- https://mvnrepository.com/artifact/ch.qos.logback/logback-classic -->
 		<dependency>
-			<groupId>org.slf4j</groupId>
-			<artifactId>slf4j-log4j12</artifactId>
-			<version>${org.slf4j-version}</version>
-			<scope>runtime</scope>
-		</dependency>
-		<dependency>
-			<groupId>log4j</groupId>
-			<artifactId>log4j</artifactId>
-			<version>1.2.15</version>
-			<exclusions>
-				<exclusion>
-					<groupId>javax.mail</groupId>
-					<artifactId>mail</artifactId>
-				</exclusion>
-				<exclusion>
-					<groupId>javax.jms</groupId>
-					<artifactId>jms</artifactId>
-				</exclusion>
-				<exclusion>
-					<groupId>com.sun.jdmk</groupId>
-					<artifactId>jmxtools</artifactId>
-				</exclusion>
-				<exclusion>
-					<groupId>com.sun.jmx</groupId>
-					<artifactId>jmxri</artifactId>
-				</exclusion>
-			</exclusions>
-			<scope>runtime</scope>
+		    <groupId>ch.qos.logback</groupId>
+		    <artifactId>logback-classic</artifactId>
+		    <version>1.2.11</version>
 		</dependency>
 
 		<!-- @Inject -->
