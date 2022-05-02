@@ -5,7 +5,9 @@ import java.util.ArrayList;
 import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -28,17 +30,21 @@ public class SampleController {
 		return 값만 가지고 JSP 페이지를 찾음
 	*/
 	
+	// Action에서 request.getParameter, getAction 했던 작업과 동일
 	// @RequestMapping(path="", method=RequestMethod.GET) == @GetMapping
 	@GetMapping("/basic") // http://localhost:9090/sample/basic
-	public void basic() {
+	public void basic(@ModelAttribute("page")int page, Model model) {
 		log.info("basic...."); // WEB-INF/views/sample/basic
+		
+		// page 변수 값을 JSP에서 보여주는 작업 - Model에 담기 ex) localhost:9090/sample/basic?page=10
+		model.addAttribute("page", page);
 	}
 	
 	// GET인지 POST인지 설정하지 않으면 둘 다 허용
-	@RequestMapping(path="/login", method=RequestMethod.GET) // http://localhost:9090/sample/login
-	public void login() {
-		log.info("login...."); // WEB-INF/views/sample/login.jsp
-	}
+//	@RequestMapping(path="/login", method=RequestMethod.GET) // http://localhost:9090/sample/login
+//	public void login() {
+//		log.info("login...."); // WEB-INF/views/sample/login.jsp
+//	}
 	
 	/*
 		POST 방식 (Controller parameter 수집) 방법
@@ -56,25 +62,25 @@ public class SampleController {
 //		log.info("login POST...." + userDTO.getUserid() + ", " + userDTO.getPassword() + ", " + userDTO.getAddress());
 //	}
 	
-	@PostMapping("/login")
-	public void loginPost(HttpServletRequest request) {
-		String userid = request.getParameter("userid");
-		String password = request.getParameter("password");
-		String address = request.getParameter("address");
-		String age = request.getParameter("age");
-		log.info("login POST...." + userid + ", " + password + ", " + address + ", " + age);
-	}
+//	@PostMapping("/login")
+//	public void loginPost(HttpServletRequest request) {
+//		String userid = request.getParameter("userid");
+//		String password = request.getParameter("password");
+//		String address = request.getParameter("address");
+//		String age = request.getParameter("age");
+//		log.info("login POST...." + userid + ", " + password + ", " + address + ", " + age);
+//	}
 	
 	@RequestMapping(path="/doA", method=RequestMethod.GET) // WEB-INF/views/sample/doA
 	public void doA() {
 		log.info("doA...."); // WEB-INF/views/sample/doA.jsp
 	}
 	
-	@RequestMapping(value="/insert", method=RequestMethod.GET) // WEB-INF/views/insert
-	public String insert() {
-		log.info("insert..."); // WEB-INF/views/insert.jsp
-		return "insert"; // void가 아닌 경우, return 하는 이름만 view를 찾는 데 사용
-	}
+//	@RequestMapping(value="/insert", method=RequestMethod.GET) // WEB-INF/views/insert
+//	public String insert() {
+//		log.info("insert..."); // WEB-INF/views/insert.jsp
+//		return "insert"; // void가 아닌 경우, return 하는 이름만 view를 찾는 데 사용
+//	}
 	
 	// @RequestParam("이름") : parameter로 사용된 변수의 이름과 전달되는 parameter의 이름이 다른 경우 사용
 	@GetMapping("/insert")

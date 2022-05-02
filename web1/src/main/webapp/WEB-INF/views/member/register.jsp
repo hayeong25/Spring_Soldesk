@@ -7,7 +7,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<h1>Login</h1>
+	<h1>회원가입</h1>
 	<form action="" method="post">
 		<div>
 			<label for="userid">userid</label>
@@ -17,18 +17,12 @@
 			<label for="password">password</label>
 			<input type="password" name="password" id="password" />
 		</div>
-	<!--
 		<div>
-			<label for="address">address</label>
-			<input type="text" name="address" id="address" />
+			<label for="phone">phone</label>
+			<input type="text" name="phone" id="phone" />
 		</div>
 		<div>
-			<label for="age">age</label>
-			<input type="text" name="age" id="age" />
-		</div>
-	-->
-		<div>
-			<button type="submit">전송</button>
+			<button type="submit">회원가입</button>
 		</div>
 	</form>
 </body>

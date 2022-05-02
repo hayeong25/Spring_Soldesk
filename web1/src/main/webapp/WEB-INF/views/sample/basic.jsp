@@ -9,6 +9,7 @@
 <body>
 	<h1>Basic</h1>
 	<div>
+		<p>${page}</p>
 		<%-- 모든 요청은 Controller로 가야 함 --%>
 		<p><a href="/">home</a></p>
 		<p><a href="/sample/basic">basic</a></p>

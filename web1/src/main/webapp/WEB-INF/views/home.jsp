@@ -8,6 +8,12 @@
 	<h1>
 		Hello world!  
 	</h1>
+	<div>
+		<li>userid : ${user.userid}</li>
+		<li>password : ${user.password}</li>
+		<li>age : <%=request.getParameter("age") %></li>
+		<li>num : ${num}</li>
+	</div>
 	<%--
 		경로 시작할 때 /로 시작한다는 것은 http://localhost:9090/ 뒤에서 주소를 붙여나간다는 의미
 		
@@ -24,6 +30,8 @@
 		<p><a href="/board/list">list</a></p>
 		<p><a href="/board/modify">modify</a></p>
 		<p><a href="/board/read">read</a></p>
+		
+		<p><a href="/calc/add">add</a></p>
 	</div>
 </body>
 </html>
