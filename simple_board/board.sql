@@ -43,3 +43,45 @@ FROM (SELECT /*+INDEX_DESC(spring_board pk_spring_board*/ rownum r, bno, title, 
 	FROM spring_board
 	WHERE bno > 0 AND (title LIKE '%modal%' OR content LIKE '%modal%') rownum <= (1 * 30))
 WHERE r > (1-1) * 30;
+
+
+-- 댓글
+CREATE TABLE spring_reply (
+	rno NUMBER(10, 0),				-- 댓글 번호
+	bno NUMBER(10, 0) NOT NULL,		-- 원본글 번호
+	reply VARCHAR2(1000) NOT NULL,	-- 댓글 내용
+	replyer VARCHAR2(50) NOT NULL,	-- 댓글 작성자
+	replydate DATE DEFAULT SYSDATE,	-- 댓글 작성일
+	updatedate DATE DEFAULT SYSDATE	-- 댓글 수정일
+);
+
+-- 댓글 시퀀스
+CREATE SEQUENCE seq_reply;
+
+-- 댓글 테이블 pk 설정 후 이름 지정
+ALTER TABLE spring_reply ADD CONSTRAINT pk_reply PRIMARY KEY(rno);
+
+-- 외래키 제약
+ALTER TABLE spring_reply ADD CONSTRAINT fk_reply_board FOREIGN KEY(bno) REFERENCES spring_board(bno);
+
+-- INDEX 생성
+CREATE INDEX idx_reply ON spring_reply(bno DESC, rno ASC);
+
+-- 댓글 수 컬럼 추가
+ALTER TABLE spring_board ADD(replycnt NUMBER DEFAULT 0);
+
+-- 기존 댓글 업데이트
+UPDATE spring_board SET replycnt = (SELECT count(rno) FROM spring_reply WHERE spring_board.bno = spring_reply.bno);
+
+-- 첨부파일 테이블 생성
+CREATE TABLE spring_attach(
+	uuid VARCHAR2(100) NOT NULL,
+	uploadpath VARCHAR2(200) NOT NULL,
+	filename VARCHAR2(100) NOT NULL,
+	filetype CHAR(1) DEFAULT '1',
+	bno NUMBER(10, 0)
+);
+
+ALTER TABLE spring_attach ADD CONSTRAINT pk_attach PRIMARY KEY(uuid);
+ALTER TABLE spring_attach ADD CONSTRAINT fk_board_attach FOREIGN KEY(bno) REFERENCES spring_board(bno);
+
