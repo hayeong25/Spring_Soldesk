@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.study.mapper.MemberMapper">
+	<insert id="register">
+		insert into membertbl (userid, password, name, gender, email) values (#{userid}, #{password}, #{name}, #{gender}, #{email})
+	</insert>
+	
+	<select id="login" resultType="com.study.dto.AuthDTO">
+		select userid, name from membertbl where userid = #{userid} and password = #{password}
+	</select>
+	
+	<update id="changePassword">
+		update membertbl set password = #{new_password} where userid = #{userid}
+	</update>
+	
+	<delete id="leave">
+		delete from membertbl where userid = #{userid}
+	</delete>
+	
+	<select id="dupId" resultType="String">
+		select userid from membertbl where userid = #{userid}
+	</select>
+</mapper>
