@@ -12,8 +12,8 @@
 	<!-- 페이지 나누기 후 -->
 	<select id="getList" resultType="com.study.dto.BoardDTO">
 		<![CDATA[
-			SELECT bno, title, writer, regdate, updatedate 
-			FROM (SELECT /*+INDEX_DESC(spring_board pk_spring_board)*/ rownum r, bno, title, writer, regdate, updatedate
+			SELECT bno, title, writer, regdate, updatedate, replycnt 
+			FROM (SELECT /*+INDEX_DESC(spring_board pk_spring_board)*/ rownum r, bno, title, writer, regdate, updatedate, replycnt 
 				 FROM spring_board 
 				 WHERE 
 		]]>
@@ -29,6 +29,11 @@
 		<include refid="criteria"></include> <!-- refid = reference id -->
 		bno > 0
 	</select>
+	
+	<!-- 댓글 수 변경 -->
+	<update id="updateReplyCnt">
+		update spring_board set replycnt = replycnt + #{amount} where bno = #{bno}
+	</update>
 	
 	<!-- 동적 SQL -->
 	<sql id="criteria">

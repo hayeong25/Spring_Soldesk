@@ -7,8 +7,9 @@ import com.study.dto.*;
 public interface BoardMapper {
 	public List<BoardDTO> getList(Criteria criteria);
 	public int register(BoardDTO registerDTO);
-	public int modify(@Param("bno")int bno, @Param("title")String title, @Param("content")String content);
+	public int modify(BoardDTO modifyDTO);
 	public BoardDTO read(int bno);
 	public int remove(int bno);
 	public int totalCnt(Criteria criteria);
+	public int updateReplyCnt(@Param("bno")int bno, @Param("amount")int amount);
 }

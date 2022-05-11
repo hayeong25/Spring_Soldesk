@@ -20,8 +20,8 @@
 	<logger name="org.springframework.jdbc" level="debug" />
 	<logger name="com.study.mapper" level="debug" />
 
-	<root level="debug">
-		<appender-ref ref="FILE" />
+	<root level="info">
 		<appender-ref ref="STDOUT" />
+		<appender-ref ref="FILE" />
 	</root>
 </configuration>
