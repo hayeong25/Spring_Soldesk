@@ -18,4 +18,5 @@ public class CustomAccessDeniedHandler implements AccessDeniedHandler {
 		// Controller 경로 지정
 		response.sendRedirect("/access-denied");
 	}
+	
 }
