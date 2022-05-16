@@ -89,6 +89,7 @@
 	let csrfHeaderName = "${_csrf.headerName}";
 	let csrfTokenValue = "${_csrf.token}";
 </script>
+
 <script src="/resources/js/modify.js"></script>
 <script src="/resources/js/upload.js"></script>
 <%@include file="../includes/footer.jsp" %>       

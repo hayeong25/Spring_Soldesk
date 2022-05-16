@@ -10,6 +10,7 @@
 	<meta name="description" content="">
 	<meta name="author" content="">
 	<title>스프링 게시판</title>
+	
 	<!-- Bootstrap Core CSS -->
 	<link href="/resources/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 	<!-- MetisMenu CSS -->

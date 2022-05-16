@@ -13,11 +13,13 @@
 		<div class="row">
 			<h1 class="title cisplay-5 text-danger">접근 권한이 없습니다.</h1>
 		</div>
+		
 		<div class="links">
 			<div class="link">
 				<a href="/">처음으로</a>
 			</div>
 		</div>
+		
 	</div>
 </body>
 </html>

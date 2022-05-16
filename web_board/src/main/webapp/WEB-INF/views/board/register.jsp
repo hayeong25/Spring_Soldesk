@@ -56,6 +56,7 @@
 		</div>
 	</div>
 </div>
+
 <script>
 	let csrfHeaderName = "${_csrf.headerName}";
 	let csrfTokenValue = "${_csrf.token}";

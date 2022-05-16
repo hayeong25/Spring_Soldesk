@@ -157,5 +157,6 @@
 
 <script src="/resources/js/read.js"></script>        
 <script src="/resources/js/reply.js"></script>        
-<script src="/resources/js/upload.js"></script>        
+<script src="/resources/js/upload.js"></script>    
+    
 <%@include file="../includes/footer.jsp" %>       

@@ -25,8 +25,10 @@
 					<label for="email" class="sr-only">이메일</label>
 					<input type="email" id="email" name="email" class="form-control" placeholder="이메일을 입력해 주세요" required autofocus />
 				</div>
+				
 				<button class="btn btn-lg btn-primary btn-block" type="submit">회원가입</button>
 				<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
+				
 			</form>
 		</div>
 	</div>
