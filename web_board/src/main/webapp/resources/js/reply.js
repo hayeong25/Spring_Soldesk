@@ -3,6 +3,7 @@
  */
 
 // 모듈화 : server쪽으로 ajax 요청을 모아둔 함수
+
 let replyService=(function(){
 	function add(reply, callback) { // 자바스크립트는 function 자체를 매개변수로 던질 수 있다
 		console.log('add method 실행');

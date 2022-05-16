@@ -1,6 +1,7 @@
 /**
  * register.jsp, modify.jsp, read.jsp, uploadForm_ajax 스크립트
  */
+
 $(function() {
 	$(":file").change(function() {
 		console.log("ajax 파일 업로드 호출");

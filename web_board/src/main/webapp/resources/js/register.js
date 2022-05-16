@@ -1,6 +1,7 @@
 /**
  * register.jsp 스크립트
  */
+
 $(function() {
 	$(":submit").click(function(e) {
 		e.preventDefault();
