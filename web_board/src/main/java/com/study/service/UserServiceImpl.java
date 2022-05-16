@@ -31,5 +31,6 @@ public class UserServiceImpl implements UserService {
 //		mapper.registerAuth(auth);
 		
 		return false;
+		
 	}
 }
