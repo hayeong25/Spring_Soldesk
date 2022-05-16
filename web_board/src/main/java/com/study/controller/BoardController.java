@@ -13,7 +13,6 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
-
 import com.study.dto.AttachDTO;
 import com.study.dto.BoardDTO;
 import com.study.dto.Criteria;
