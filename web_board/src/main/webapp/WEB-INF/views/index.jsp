@@ -7,12 +7,16 @@
 <title>Insert title here</title>
 </head>
 <body>
+
 	<h2>Spring MVC Board</h2>
+
 	<div>
 		<a href="/board/list">전체 리스트</a>
 	</div>
+
 	<div>
 		<a href="/member/login">로그인</a>
 	</div>
+	
 </body>
 </html>
