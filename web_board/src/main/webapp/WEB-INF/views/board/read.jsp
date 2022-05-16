@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib uri="http://www.springframework.org/security/tags" prefix="sec" %>
 
 <%@include file="../includes/header.jsp" %>
 <div class="row">
@@ -31,8 +32,15 @@
 					<div class="form-group">
 						<label>Writer</label>
 						<input class="form-control" name="writer" readonly="readonly" value="${dto.writer }">                				
-					</div>  
-					<button type="button" class="btn btn-default">Modify</button>     			
+					</div>
+					
+					<sec:authentication property="principal" var="info"/>
+					<sec:authorize access="isAuthenticated()">
+						<c:if test="${info.username == dto.writer}">
+							<button type="button" class="btn btn-default">Modify</button>
+						</c:if>
+					</sec:authorize>
+								
 					<button type="reset" class="btn btn-info">List</button>          			
 				</form>
 			</div>
@@ -65,7 +73,9 @@
 			<div class="panel-heading">
 				<i class="fa fa-comments fa-fw"></i>
 				Reply
-				<button id="addReplyBtn" class="btn btn-primary btn-xs pull-right">NewReply</button>
+				<sec:authorize access="isAuthenticated()">
+					<button id="addReplyBtn" class="btn btn-primary btn-xs pull-right">NewReply</button>
+				</sec:authorize>
 			</div>
 			<div class="panel-body">
 				<ul class="chat">
@@ -133,6 +143,16 @@
 <script>
 	// 현재 글 번호
 	let bno = ${dto.bno};
+	
+	// security 호출
+	let replyer = null;
+	<sec:authorize access="isAuthenticated()">
+		replyer = '<sec:authentication property="principal.username"/>';
+	</sec:authorize>
+	
+	// CSRF 토큰
+	let csrfHeaderName = "${_csrf.headerName}";
+	let csrfTokenValue = "${_csrf.token}";
 </script>
 
 <script src="/resources/js/read.js"></script>        

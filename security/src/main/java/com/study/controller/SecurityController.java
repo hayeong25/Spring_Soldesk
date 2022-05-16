@@ -1,0 +1,40 @@
+package com.study.controller;
+
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
+import lombok.extern.slf4j.Slf4j;
+
+@Slf4j
+@Controller
+public class SecurityController {
+	
+	@GetMapping("/login")
+	public void login() {
+		log.info("login form 요청");
+	}
+	
+	@GetMapping("/login-error")
+	public String loginError(Model model) {
+		model.addAttribute("loginError", "아이디 또는 비밀번호를 확인해 주세요.");
+		return "login";
+	}
+	
+	@GetMapping("/user-page")
+	public String userPage() {
+		log.info("user page 요청");
+		return "userpage";
+	}
+	
+	@GetMapping("/admin-page")
+	public String adminPage() {
+		log.info("admin page 요청");
+		return "adminpage";
+	}
+	
+	@GetMapping("/access-denied")
+	public String accessDenied() {
+		log.info("접근 제한");
+		return "accessdenied";
+	}
+}

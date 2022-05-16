@@ -7,6 +7,7 @@ import java.text.SimpleDateFormat;
 import java.util.*;
 import org.springframework.core.io.*;
 import org.springframework.http.*;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
 import org.springframework.util.FileCopyUtils;
 import org.springframework.web.bind.annotation.*;
@@ -19,6 +20,7 @@ import net.coobird.thumbnailator.Thumbnailator;
 @Controller
 public class UploadAjaxController {
 	
+	@PreAuthorize("isAuthenticated()")
 	@GetMapping("/uploadAjax")
 	public String uploadAjaxForm() {
 		log.info("ajax upload form 요청");
@@ -132,6 +134,7 @@ public class UploadAjaxController {
 	}
 	
 	// 서버 파일 삭제
+	@PreAuthorize("isAuthenticated()")
 	@PostMapping("/deleteFile")
 	public ResponseEntity<String> deleteFile(String fileName, String type) {
 		log.info("파일 삭제 요청");

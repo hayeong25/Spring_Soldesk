@@ -8,6 +8,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -42,14 +43,16 @@ public class BoardController {
 	}
 	
 	/* --------------------------------- register --------------------------------- */
+	@PreAuthorize("isAuthenticated()") // 로그인 정보가 있는지 확인
 	@GetMapping("/register")
 	public void registerGet() {
 		log.info("register form 보여주기");
 	}
 	
+	@PreAuthorize("isAuthenticated()")
 	@PostMapping("/register")
 	public String registerPost(BoardDTO registerDTO, @ModelAttribute("criteria")Criteria criteria, RedirectAttributes rttr) {
-		log.info("register 요청");
+		log.info("register 요청" + registerDTO);
 		service.register(registerDTO);
 		
 		rttr.addAttribute("pageNum", criteria.getPageNum());
@@ -108,6 +111,7 @@ public class BoardController {
 		model.addAttribute("dto", dto);
 	}
 	
+	@PreAuthorize("principal.username == #modifyDTO.writer")
 	@PostMapping("/modify")
 	public String modifyPost(BoardDTO modifyDTO, @ModelAttribute("criteria")Criteria criteria, RedirectAttributes rttr) {
 		log.info("modify 요청");
@@ -123,8 +127,9 @@ public class BoardController {
 	}
 	
 	/* --------------------------------- remove --------------------------------- */
+	@PreAuthorize("principal.username == #writer")
 	@GetMapping("/remove")
-	public String removePost(int bno, @ModelAttribute("criteria")Criteria criteria, RedirectAttributes rttr) {
+	public String removePost(int bno, String writer, @ModelAttribute("criteria")Criteria criteria, RedirectAttributes rttr) {
 		log.info("remove 요청");
 		// bno에 해당하는 첨부파일 목록 가져오기
 		List<AttachDTO> attachList = service.attachList(bno);

@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:security="http://www.springframework.org/schema/security"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/security http://www.springframework.org/schema/security/spring-security-5.6.xsd">
+	
+	<bean id="encoder" class="org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder" />
+	
+	<security:http>
+		<!-- login-page : Controller 지정 -->
+		<!--
+			authentication-failure-url : 로그인 실패 시 적용할 컨트롤러 지정
+										 로그인 성공 후 시작 페이지로 돌아감
+			authentication-success-handler-ref : 로그인 성공 후 시작 페이지로 돌아가는 것 변경
+		-->
+		<security:form-login login-page="/login" authentication-failure-url="/login-error" authentication-success-handler-ref="customLoginSuccessHander"/>
+		<!-- 로그아웃 후 기본 경로는 login인데, index로 경로 변경 -->
+		<security:logout invalidate-session="true" logout-success-url="/" delete-cookies="remember-me"/> <!-- session 날리기 -->
+		<!-- pattern에 들어있는 경로로 요청이 들어올 때 요청 가로채기 : 권한 여부 -->
+		<security:intercept-url pattern="/user-page" access="hasRole('ROLE_USER')"/>
+		<security:intercept-url pattern="/admin-page" access="hasRole('ROLE_ADMIN')"/>
+		
+		<!-- 접근 제한된 경로에 들어가는 경우 처리 -->
+		<!-- <security:access-denied-handler error-page="/access-denied"/> --> <!-- error-page : Controller 지정 -->
+		<security:access-denied-handler ref="customAccessDeniedHandler"/> <!-- ref : Handler 연결 -->
+		
+		<!-- 로그인 기억하기 : cookie에 사용자 정보를 암호화 해서 기억하는 방식 -->
+		<!-- <security:remember-me/> -->
+		<!-- 로그인 기억하기 : DB 사용 -->
+		<security:remember-me data-source-ref="ds" token-validity-seconds="604800"/>
+	</security:http>
+	
+	<security:authentication-manager>
+		<security:authentication-provider user-service-ref="customUserDetailService">
+			<security:password-encoder ref="encoder"/>
+		</security:authentication-provider>
+	</security:authentication-manager>
+	
+	<!-- 
+		in-memory 인증방식
+	<security:authentication-manager>
+		<security:authentication-provider>
+			<security:user-service>
+				{noop} : 암호화 적용 X
+				<security:user name="user1" password="{noop}user1" authorities="ROLE_USER"/>
+				<security:user name="admin" password="{noop}admin" authorities="ROLE_ADMIN, ROLE_USER"/>
+			</security:user-service>
+		</security:authentication-provider>
+	</security:authentication-manager> -->
+</beans>
