@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<th:block th:replace="~{/layout/basic::setContent(~{this::content})}">
+
+	<th:block th:fragment="content">
+		<h1 class="mt-4">GuestBook Modify Page</h1>
+		
+		<form th:action="@{/guestbook/modify}" th:method="post">
+			<div class="mb-3">
+				<label>Gno</label>
+				<input type="text" name="gno" class="form-control" th:value="${dto.gno}" readonly/>
+			</div>
+			<div class="mb-3">
+				<label>Title</label>
+				<input type="text" name="title" class="form-control" th:value="${dto.title}"/>
+			</div>
+			<div class="mb-3">
+				<label>Content</label>
+				<textarea name="content" rows="5" class="form-control">[[${dto.content}]]</textarea>
+			</div>
+			<div class="mb-3">
+				<label>Writer</label>
+				<input type="text" name="writer" class="form-control" th:value="${dto.writer}" readonly/>
+			</div>
+			<div class="mb-3">
+				<label>RegDate</label>
+				<input type="text" class="form-control" th:value="${#temporals.format(dto.regDate, 'yyyy/MM/dd HH:mm:ss')}" readonly/>
+			</div>
+			<div class="mb-3">
+				<label>UpdateDate</label>
+				<input type="text" class="form-control" th:value="${#temporals.format(dto.updateDate, 'yyyy/MM/dd HH:mm:ss')}" readonly/>
+			</div>
+			
+			<button type="button" class="btn btn-primary">modify</button>
+			<button type="button" class="btn btn-info">list</button>
+			<button type="button" class="btn btn-danger">remove</button>
+			
+			<!-- 페이지 번호 -->
+			<input type="hidden" name="page" th:value="${requestDTO.page}" />
+			
+			<!-- 검색 정보 -->
+			<input type="hidden" name="type" th:value="${requestDTO.type}" />
+			<input type="hidden" name="keyword" th:value="${requestDTO.keyword}" />
+		</form>
+	
+	<script th:inline="javascript">
+		$(function() {
+			let form = $("form");
+			
+			// modify 클릭 시
+			$(".btn-primary").click(function() {
+				if(!confirm("수정하시겠습니까?")) {
+					return;
+				}
+				
+				form.attr("action", "/guestbook/modify")
+					.attr("method", "post")
+					.submit();
+			})
+			
+			// list 클릭 시
+			$(".btn-info").click(function() {
+				// 페이지 나누기 정보
+				let page = $("[name='page']");
+				
+				// 검색 정보
+				let type = $("[name='type']");
+				let keyword = $("[name='keyword']");
+				
+				// form 안의 모든 내용 지우기
+				form.empty();
+				
+				// 페이지 나누기 정보 + 검색 정보 추가
+				form.append(page);
+				form.append(type);
+				form.append(keyword);
+				
+				form.attr("action", "/guestbook/list")
+					.attr("method", "get")
+					.submit();
+			})
+			
+			// remove 클릭 시
+			$(".btn-danger").click(function() {
+				form.attr("action", "/guestbook/remove")
+					.attr("method", "post")
+					.submit();
+			})
+			
+		})
+	</script>	
+	
+	</th:block>
+	
+</th:block>
