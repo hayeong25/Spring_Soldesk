@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<h1>Thymeleaf 예제 6</h1>
+	<h2 th:text="${result}"></h2>
+	<script th:inline="javascript"> // Javascipt 안에서 사용하는 코드라는 것을 알려줘야 함
+		let result = [[${result}]]; // 중괄호만 하면 에러 <!CDATA[[]]> 처럼 해야 함
+	</script>
+</body>
+</html>

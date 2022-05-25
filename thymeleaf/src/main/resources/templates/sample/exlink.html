@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<h1>Thymeleaf 예제 8 - exlink</h1>
+	<ul>
+		<!-- thymeleaf에서의 링크 처리 : @{절대경로 or 상대경로} -->
+		<li><a th:href="@{http://localhost:8081/sample/ex1}">ex1 절대경로</a></li>
+		<li><a th:href="@{/sample/ex1}">ex1 상대경로</a></li>
+		<li><a th:href="@{ex1}">ex1 상대경로</a></li>
+		<!-- ex1?param1=aaa?param2=bbb -->
+		<li><a href="@{ex8(param1='aaa', param2='bbb')}">ex8 param1 & param2</a></li>
+	</ul>
+</body>
+</html>

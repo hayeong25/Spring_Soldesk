@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<h1>Thymeleaf 예제 5</h1>
+	<h2>변경 전</h2>
+	<table>
+		<tr>
+			<td>MID</td>
+			<td>MNAME</td>
+			<td>REGDATE</td>
+		</tr>
+		<tr th:each="member:${list}">
+			<td th:text="${member.mid}"></td>
+			<td th:text="${member.mname}"></td>
+			<td th:text="${#dates.format(member.regdate, 'yyyy-MM-dd')}"></td>
+		</tr>
+	</table>
+	<br />
+	<hr />
+	<!-- mid가 u0001인 경우 secret으로 변경해서 출력하기 -->
+	<h2>MID가 u0001인 경우 SECRET</h2>
+	<table>
+		<tr>
+			<td>MID</td>
+			<td>MNAME</td>
+			<td>REGDATE</td>
+		</tr>
+		<tr th:each="member:${list}">
+			<td th:text="${member.mid == 'u0001' ? 'SECRET' : member.mid}"></td>
+			<td th:text="${member.mname}"></td>
+			<td th:text="${#dates.format(member.regdate, 'yyyy-MM-dd')}"></td>
+		</tr>
+	</table>
+	<br />
+	<hr />
+	<!-- mid가 u0001인 경우 MODIFY로 변경해서 출력 / 이외에는 VIEW -->
+	<!--
+		th:if ~ unless
+		=> if ~ else와 비슷하지만 else와 달리 unless에서 조건을 다시 써줘야 함
+	-->
+	<h2>th:if ~ unless - mid가 u0001인 경우 MODIFY로 변경해서 출력 / 이외에는 VIEW </h2>
+	<table>
+		<tr>
+			<td>MID</td>
+			<td>MNAME</td>
+			<td>REGDATE</td>
+		</tr>
+		<tr th:each="member:${list}">
+			<td th:if="${member.mid}">
+				<a href="/MODIFY" th:if="${member.mid == 'u0001'}">MODIFY</a>
+				<p th:unless="${member.mid == 'u0001'}">VIEW</p>
+			</td>
+			<td th:text="${member.mname}"></td>
+			<td th:text="${#dates.format(member.regdate, 'yyyy-MM-dd')}"></td>
+		</tr>
+	</table>
+</body>
+</html>

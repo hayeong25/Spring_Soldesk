@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<h1>Thymeleaf 예제 4</h1>
+	<table>
+		<tr>
+			<td>INDEX</td>
+			<td>SIZE</td>
+			<td>ODD / EVEN</td>
+			<td>MID</td>
+			<td>MNAME</td>
+			<td>REGDATE</td>
+		</tr>
+		<tr th:each="member, state:${list}"> <!-- each 변수 내에 있는 상태변수 : index, size, odd/even -->
+			<td th:test="${state.index}"></td>
+			<td th:test="${state.size}"></td>
+			<td th:test="${state.odd + ' ' + state.even}"></td>
+			<td th:text="${member.mid}"></td>
+			<td>
+				<a th:href="@{ex9(mno=${member.mno})}" th:text="${member.mname}"></a>
+			</td>
+			<td th:text="${#dates.format(member.regdate, 'yyyy-MM-dd')}"></td>
+		</tr>
+	</table>
+</body>
+</html>
