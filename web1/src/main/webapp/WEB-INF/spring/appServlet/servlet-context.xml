@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans:beans xmlns="http://www.springframework.org/schema/mvc"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:beans="http://www.springframework.org/schema/beans"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/mvc https://www.springframework.org/schema/mvc/spring-mvc.xsd
+		http://www.springframework.org/schema/beans https://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context https://www.springframework.org/schema/context/spring-context.xsd">
+
+	<!-- DispatcherServlet Context: defines this servlet's request-processing infrastructure -->
+	
+	<!-- Enables the Spring MVC @Controller programming model : @Component(@Service, @Repository, @Controller) 외 다른 어노테이션 활성화 -->
+	<annotation-driven />
+
+	<!-- static resources 폴더 지정 (css, js 저장) -->
+	<resources mapping="/resources/**" location="/resources/" /> <!-- src/main/webapp/resources -->
+
+	<!--
+		/WEB-INF/views/*.jsp : view 페이지를 직접 지정하지 않음
+								view를 찾기 위한 InternalResourceViewResolver를 동작시켜야 함
+	-->
+	<beans:bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+		<beans:property name="prefix" value="/WEB-INF/views/" /> <!-- URL 앞부분 고정 -->
+		<beans:property name="suffix" value=".jsp" /> <!-- JSP 사용할 경우, URL 뒷부분 고정 -->
+	</beans:bean>
+	
+	<context:component-scan base-package="com.study.controller" />
+	
+</beans:beans>
