@@ -1,0 +1,76 @@
+2022-04-26 12:59:07,009 DEBUG [main] o.s.b.f.x.XmlBeanDefinitionReader [XmlBeanDefinitionReader.java:393] Loaded 9 bean definitions from class path resource [config.xml]
+2022-04-26 12:59:07,039 DEBUG [main] o.s.b.f.s.DefaultListableBeanFactory [DefaultSingletonBeanRegistry.java:225] Creating shared instance of singleton bean 'org.springframework.context.annotation.internalConfigurationAnnotationProcessor'
+2022-04-26 12:59:07,072 DEBUG [main] o.s.b.f.s.DefaultListableBeanFactory [DefaultSingletonBeanRegistry.java:225] Creating shared instance of singleton bean 'org.mybatis.spring.mapper.MapperScannerConfigurer#0'
+2022-04-26 12:59:07,130 DEBUG [main] o.a.i.l.LogFactory [LogFactory.java:109] Logging initialized using 'class org.apache.ibatis.logging.slf4j.Slf4jImpl' adapter.
+2022-04-26 12:59:07,143 DEBUG [main] o.m.s.m.ClassPathMapperScanner [ClassPathScanningCandidateComponentProvider.java:435] Identified candidate component class: file [C:\Users\hayeo\git\Spring_Soldesk\simple_book_mybatis\target\classes\com\study\mapper\BookMapper.class]
+2022-04-26 12:59:07,145 DEBUG [main] o.m.s.m.ClassPathMapperScanner [Logger.java:49] Creating MapperFactoryBean with name 'bookMapper' and 'com.study.mapper.BookMapper' mapperInterface
+2022-04-26 12:59:07,147 DEBUG [main] o.m.s.m.ClassPathMapperScanner [Logger.java:49] Enabling autowire by type for MapperFactoryBean with name 'bookMapper'.
+2022-04-26 12:59:07,150 DEBUG [main] o.s.b.f.s.DefaultListableBeanFactory [DefaultSingletonBeanRegistry.java:225] Creating shared instance of singleton bean 'org.springframework.context.event.internalEventListenerProcessor'
+2022-04-26 12:59:07,154 DEBUG [main] o.s.b.f.s.DefaultListableBeanFactory [DefaultSingletonBeanRegistry.java:225] Creating shared instance of singleton bean 'org.springframework.context.event.internalEventListenerFactory'
+2022-04-26 12:59:07,156 DEBUG [main] o.s.b.f.s.DefaultListableBeanFactory [DefaultSingletonBeanRegistry.java:225] Creating shared instance of singleton bean 'org.springframework.context.annotation.internalAutowiredAnnotationProcessor'
+2022-04-26 12:59:07,162 DEBUG [main] o.s.b.f.s.DefaultListableBeanFactory [DefaultSingletonBeanRegistry.java:225] Creating shared instance of singleton bean 'service'
+2022-04-26 12:59:07,192 DEBUG [main] o.s.b.f.s.DefaultListableBeanFactory [DefaultSingletonBeanRegistry.java:225] Creating shared instance of singleton bean 'bookMapper'
+2022-04-26 12:59:07,201 DEBUG [main] o.s.b.f.s.DefaultListableBeanFactory [DefaultSingletonBeanRegistry.java:225] Creating shared instance of singleton bean 'sqlSessionFactory'
+2022-04-26 12:59:07,203 DEBUG [main] o.s.b.f.s.DefaultListableBeanFactory [DefaultSingletonBeanRegistry.java:225] Creating shared instance of singleton bean 'ds'
+2022-04-26 12:59:07,207 DEBUG [main] o.s.b.f.s.DefaultListableBeanFactory [DefaultSingletonBeanRegistry.java:225] Creating shared instance of singleton bean 'hikariConfig'
+2022-04-26 12:59:07,217 DEBUG [main] c.z.h.HikariConfig [HikariConfig.java:968] Driver class oracle.jdbc.OracleDriver found in Thread context class loader jdk.internal.loader.ClassLoaders$AppClassLoader@69663380
+2022-04-26 12:59:07,426 DEBUG [main] c.z.h.HikariConfig [HikariConfig.java:1100] HikariPool-1 - configuration:
+2022-04-26 12:59:07,436 DEBUG [main] c.z.h.HikariConfig [HikariConfig.java:1132] allowPoolSuspension.............false
+2022-04-26 12:59:07,436 DEBUG [main] c.z.h.HikariConfig [HikariConfig.java:1132] autoCommit......................true
+2022-04-26 12:59:07,436 DEBUG [main] c.z.h.HikariConfig [HikariConfig.java:1132] catalog.........................none
+2022-04-26 12:59:07,436 DEBUG [main] c.z.h.HikariConfig [HikariConfig.java:1132] connectionInitSql...............none
+2022-04-26 12:59:07,437 DEBUG [main] c.z.h.HikariConfig [HikariConfig.java:1132] connectionTestQuery.............none
+2022-04-26 12:59:07,437 DEBUG [main] c.z.h.HikariConfig [HikariConfig.java:1132] connectionTimeout...............30000
+2022-04-26 12:59:07,437 DEBUG [main] c.z.h.HikariConfig [HikariConfig.java:1132] dataSource......................none
+2022-04-26 12:59:07,437 DEBUG [main] c.z.h.HikariConfig [HikariConfig.java:1132] dataSourceClassName.............none
+2022-04-26 12:59:07,437 DEBUG [main] c.z.h.HikariConfig [HikariConfig.java:1132] dataSourceJNDI..................none
+2022-04-26 12:59:07,438 DEBUG [main] c.z.h.HikariConfig [HikariConfig.java:1132] dataSourceProperties............{password=<masked>}
+2022-04-26 12:59:07,439 DEBUG [main] c.z.h.HikariConfig [HikariConfig.java:1132] driverClassName................."oracle.jdbc.OracleDriver"
+2022-04-26 12:59:07,439 DEBUG [main] c.z.h.HikariConfig [HikariConfig.java:1132] exceptionOverrideClassName......none
+2022-04-26 12:59:07,439 DEBUG [main] c.z.h.HikariConfig [HikariConfig.java:1132] healthCheckProperties...........{}
+2022-04-26 12:59:07,440 DEBUG [main] c.z.h.HikariConfig [HikariConfig.java:1132] healthCheckRegistry.............none
+2022-04-26 12:59:07,440 DEBUG [main] c.z.h.HikariConfig [HikariConfig.java:1132] idleTimeout.....................600000
+2022-04-26 12:59:07,440 DEBUG [main] c.z.h.HikariConfig [HikariConfig.java:1132] initializationFailTimeout.......1
+2022-04-26 12:59:07,440 DEBUG [main] c.z.h.HikariConfig [HikariConfig.java:1132] isolateInternalQueries..........false
+2022-04-26 12:59:07,440 DEBUG [main] c.z.h.HikariConfig [HikariConfig.java:1132] jdbcUrl.........................jdbc:oracle:thin:@localhost:1521:xe
+2022-04-26 12:59:07,441 DEBUG [main] c.z.h.HikariConfig [HikariConfig.java:1132] keepaliveTime...................0
+2022-04-26 12:59:07,441 DEBUG [main] c.z.h.HikariConfig [HikariConfig.java:1132] leakDetectionThreshold..........0
+2022-04-26 12:59:07,441 DEBUG [main] c.z.h.HikariConfig [HikariConfig.java:1132] maxLifetime.....................1800000
+2022-04-26 12:59:07,441 DEBUG [main] c.z.h.HikariConfig [HikariConfig.java:1132] maximumPoolSize.................10
+2022-04-26 12:59:07,441 DEBUG [main] c.z.h.HikariConfig [HikariConfig.java:1132] metricRegistry..................none
+2022-04-26 12:59:07,441 DEBUG [main] c.z.h.HikariConfig [HikariConfig.java:1132] metricsTrackerFactory...........none
+2022-04-26 12:59:07,442 DEBUG [main] c.z.h.HikariConfig [HikariConfig.java:1132] minimumIdle.....................10
+2022-04-26 12:59:07,442 DEBUG [main] c.z.h.HikariConfig [HikariConfig.java:1132] password........................<masked>
+2022-04-26 12:59:07,442 DEBUG [main] c.z.h.HikariConfig [HikariConfig.java:1132] poolName........................"HikariPool-1"
+2022-04-26 12:59:07,442 DEBUG [main] c.z.h.HikariConfig [HikariConfig.java:1132] readOnly........................false
+2022-04-26 12:59:07,442 DEBUG [main] c.z.h.HikariConfig [HikariConfig.java:1132] registerMbeans..................false
+2022-04-26 12:59:07,443 DEBUG [main] c.z.h.HikariConfig [HikariConfig.java:1132] scheduledExecutor...............none
+2022-04-26 12:59:07,443 DEBUG [main] c.z.h.HikariConfig [HikariConfig.java:1132] schema..........................none
+2022-04-26 12:59:07,443 DEBUG [main] c.z.h.HikariConfig [HikariConfig.java:1132] threadFactory...................internal
+2022-04-26 12:59:07,443 DEBUG [main] c.z.h.HikariConfig [HikariConfig.java:1132] transactionIsolation............default
+2022-04-26 12:59:07,443 DEBUG [main] c.z.h.HikariConfig [HikariConfig.java:1132] username........................"javadb"
+2022-04-26 12:59:07,444 DEBUG [main] c.z.h.HikariConfig [HikariConfig.java:1132] validationTimeout...............5000
+2022-04-26 12:59:07,445 INFO [main] c.z.h.HikariDataSource [HikariDataSource.java:80] HikariPool-1 - Starting...
+2022-04-26 12:59:08,136 INFO [main] c.z.h.p.HikariPool [HikariPool.java:565] HikariPool-1 - Added connection oracle.jdbc.driver.T4CConnection@db44aa2
+2022-04-26 12:59:08,139 INFO [main] c.z.h.HikariDataSource [HikariDataSource.java:82] HikariPool-1 - Start completed.
+2022-04-26 12:59:08,148 DEBUG [main] o.m.s.SqlSessionFactoryBean [Logger.java:49] Property 'configuration' or 'configLocation' not specified, using default MyBatis Configuration
+2022-04-26 12:59:08,194 DEBUG [main] o.m.s.SqlSessionFactoryBean [Logger.java:49] Property 'mapperLocations' was not specified.
+2022-04-26 12:59:08,250 DEBUG [HikariPool-1 housekeeper] c.z.h.p.HikariPool [HikariPool.java:414] HikariPool-1 - Pool stats (total=1, active=0, idle=1, waiting=0)
+2022-04-26 12:59:08,281 DEBUG [HikariPool-1 connection adder] c.z.h.p.HikariPool [HikariPool.java:738] HikariPool-1 - Added connection oracle.jdbc.driver.T4CConnection@689e4fc8
+2022-04-26 12:59:08,325 DEBUG [HikariPool-1 connection adder] c.z.h.p.HikariPool [HikariPool.java:738] HikariPool-1 - Added connection oracle.jdbc.driver.T4CConnection@7a33f4d4
+2022-04-26 12:59:08,358 DEBUG [main] o.m.s.SqlSessionUtils [Logger.java:49] Creating a new SqlSession
+2022-04-26 12:59:08,365 DEBUG [main] o.m.s.SqlSessionUtils [Logger.java:49] SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@1ecfcbc9] was not registered for synchronization because synchronization is not active
+2022-04-26 12:59:08,381 DEBUG [HikariPool-1 connection adder] c.z.h.p.HikariPool [HikariPool.java:738] HikariPool-1 - Added connection oracle.jdbc.driver.T4CConnection@19da6a43
+2022-04-26 12:59:08,433 DEBUG [main] o.s.j.d.DataSourceUtils [DataSourceUtils.java:116] Fetching JDBC Connection from DataSource
+2022-04-26 12:59:08,438 DEBUG [HikariPool-1 connection adder] c.z.h.p.HikariPool [HikariPool.java:738] HikariPool-1 - Added connection oracle.jdbc.driver.T4CConnection@61371851
+2022-04-26 12:59:08,442 DEBUG [main] o.m.s.t.SpringManagedTransaction [Logger.java:49] JDBC Connection [HikariProxyConnection@1235686146 wrapping oracle.jdbc.driver.T4CConnection@db44aa2] will not be managed by Spring
+2022-04-26 12:59:08,450 DEBUG [main] c.s.m.B.search [BaseJdbcLogger.java:137] ==>  Preparing: select * from booktbl where writer like '%'||?||'%'
+2022-04-26 12:59:08,482 DEBUG [HikariPool-1 connection adder] c.z.h.p.HikariPool [HikariPool.java:738] HikariPool-1 - Added connection oracle.jdbc.driver.T4CConnection@780f418
+2022-04-26 12:59:08,532 DEBUG [HikariPool-1 connection adder] c.z.h.p.HikariPool [HikariPool.java:738] HikariPool-1 - Added connection oracle.jdbc.driver.T4CConnection@641b8a57
+2022-04-26 12:59:08,582 DEBUG [HikariPool-1 connection adder] c.z.h.p.HikariPool [HikariPool.java:738] HikariPool-1 - Added connection oracle.jdbc.driver.T4CConnection@3918e4d1
+2022-04-26 12:59:08,604 DEBUG [main] c.s.m.B.search [BaseJdbcLogger.java:137] ==> Parameters: 이승한(String)
+2022-04-26 12:59:08,630 DEBUG [HikariPool-1 connection adder] c.z.h.p.HikariPool [HikariPool.java:738] HikariPool-1 - Added connection oracle.jdbc.driver.T4CConnection@39d9132
+2022-04-26 12:59:08,677 DEBUG [HikariPool-1 connection adder] c.z.h.p.HikariPool [HikariPool.java:738] HikariPool-1 - Added connection oracle.jdbc.driver.T4CConnection@3257d3d
+2022-04-26 12:59:08,696 DEBUG [HikariPool-1 connection adder] c.z.h.p.HikariPool [HikariPool.java:414] HikariPool-1 - After adding stats (total=10, active=1, idle=9, waiting=0)
+2022-04-26 12:59:08,742 DEBUG [main] c.s.m.B.search [BaseJdbcLogger.java:137] <==      Total: 1
+2022-04-26 12:59:08,747 DEBUG [main] o.m.s.SqlSessionUtils [Logger.java:49] Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@1ecfcbc9]
